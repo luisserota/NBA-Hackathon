@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngDialog'
   ])
   .config(["$routeProvider", function ($routeProvider) {
     $routeProvider
@@ -39,7 +40,7 @@ angular
 // SHOW MODAL ON PAGE LOAD. OPEN IT AGAIN WITH i IN TOP RIGHT
 
 angular.module('nbahackathonApp')
-  .controller('MainCtrl', ["$scope", function ($scope) {
+  .controller('MainCtrl', ["$scope", "ngDialog", function ($scope, ngDialog) {
 
   	$scope.curQuarter = 1;
   	$scope.curTime = "12:00"; 
@@ -82,6 +83,13 @@ angular.module('nbahackathonApp')
     	return n[n.length - 1];
   	};
 
+  	$scope.openInfoDialog = function() {
+        ngDialog.open({ 
+        	template: 'instructions', 
+        	className: 'ngdialog-theme-default' 
+        });
+  	};
+
 
   }]);
 
@@ -112,7 +120,8 @@ angular.module('nbahackathonApp').run(['$templateCache', function($templateCache
 
 
   $templateCache.put('views/main.html',
-    "<div class=\"header\"> <img ng-src=\"/images/nba-logo-small.png\"> <h3 class=\"title\">NBA Hackathon 2016</h3> <div class=\"navbar\"> </div> <div class=\"projTitle\"> <div class=\"ttlTxt\">PROJECT TITLE</div> </div> </div> <div class=\"gamesNav\"> <div class=\"gamesNavTitle\">Live Games</div> <div class=\"gamesNavList\"> <div class=\"gameListing\" ng-repeat=\"g in liveGames\" ng-click=\"chooseGame($index)\" ng-class=\"{activeGame: $index}\"> <div>{{g.HomeT}}</div> <div>vs.</div> <div>{{g.AwayT}}</div> </div> </div> </div> <div class=\"mainDashboard\"> <div class=\"dashboardTitle\"> <div class=\"TeamTab\" ng-repeat=\"t in currentGame\" ng-class=\"{activeTeam: t === selectedTeam}\" ng-click=\"selectTeam(t)\"> <div class=\"TeamTabTitle\">{{getTeamName(t)}}</div> </div> <div class=\"gameClock\">{{curTime}} {{curQuarter}}Q</div> </div> </div>"
+    "<img class=\"infoButton\" src=\"/images/infoicon.png\" ng-click=\"openInfoDialog($event)\"> <div class=\"header\"> <img ng-src=\"/images/nba-logo-small.png\"> <h3 class=\"title\">NBA Hackathon 2016</h3> <div class=\"navbar\"> </div> <div class=\"projTitle\"> <div class=\"ttlTxt\">PROJECT TITLE</div> </div> </div> <div class=\"gamesNav\"> <div class=\"gamesNavTitle\">Live Games</div> <div class=\"gamesNavList\"> <div class=\"gameListing\" ng-repeat=\"g in liveGames\" ng-click=\"chooseGame($index)\" ng-class=\"{activeGame: g.HomeT === currentGame.HomeT}\"> <div>{{g.HomeT}}</div> <div>vs.</div> <div>{{g.AwayT}}</div> </div> </div> </div> <div class=\"mainDashboard\"> <div class=\"dashboardTitle\"> <div class=\"TeamTab\" ng-repeat=\"t in currentGame\" ng-class=\"{activeTeam: t === selectedTeam}\" ng-click=\"selectTeam(t)\"> <div class=\"TeamTabTitle\">{{getTeamName(t)}}</div> </div> <div class=\"gameClock\">{{curTime}} {{curQuarter}}Q</div> </div> </div> <script type=\"text/ng-template\" id=\"instructions\"><h1>Template heading</h1>\n" +
+    "    <p>Content goes here</p></script>"
   );
 
 }]);
