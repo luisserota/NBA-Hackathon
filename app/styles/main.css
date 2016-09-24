@@ -1,13 +1,15 @@
 html {
   color: white;
   background-color: black;
-  font-family: NBAfont;
+  font-family: 'Roboto Mono', monospace;
 }
 
 @font-face {
     font-family: NBAfont;
     src: url(HorribleJefe.ttf);
 }
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
 
 /* HEADER */
 .header {
@@ -132,6 +134,11 @@ html {
   text-align: center;
 }
 
+.mainDashboard .dashboardTitle .TeamTab:hover {
+  background-color: white;
+  color: black;
+}
+
 .mainDashboard .dashboardTitle .TeamTab .TeamTabTitle {
   position: relative;
   top:15px;
@@ -149,6 +156,43 @@ html {
   font-size: 35px;
   text-align: center;
 }
+
+.mainDashboard .dashboardBody {
+  position: absolute;
+  top:134px;
+/*  left:15px;*/
+  width: 100%;
+  height: calc(100% - 150px);
+}
+
+.mainDashboard .dashboardBody .timeoutScoreGraph {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+}
+
+.mainDashboard .dashboardBody .momentumTrendGraph {
+  position: absolute;
+  top: 222px;
+  left: 15px;
+}
+
+.mainDashboard .dashboardBody .feed {
+  position: absolute;
+  top:0px;
+  right: 15px;
+  height: 100%;
+  width: calc(50% - 15px);
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  overflow-y: scroll; 
+}
+
+.mainDashboard .dashboardBody .feed .playListing {
+  width: 100%;
+}
+
 /* END MAIN DASHBOARD */
 
 
