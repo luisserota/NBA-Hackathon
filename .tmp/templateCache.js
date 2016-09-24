@@ -12,7 +12,8 @@ angular.module('nbahackathonApp').run(['$templateCache', function($templateCache
     "    <p>Choose between the 2 live teams by hovering over and clicking on the team name</p>\n" +
     "    <p>The \"Timeout Score\" recommends the active team to either call or not call a timeout</p>\n" +
     "    <p>The \"Momentum Graph\" displays the active team's current momentum based on acceleration</p>\n" +
-    "    <p>The play by play updates are are in real time</p></script>"
+    "    <p>The play by play updates are are in real time</p> \n" +
+    "    <h5 style=\"font-weight:bold;\">Explanation of algorithms we developed for determining Timeout Score and Acceleration in PowerPoint</h5></script>"
   );
 
 }]);
