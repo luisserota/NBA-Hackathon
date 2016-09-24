@@ -5,6 +5,7 @@ Live deployment on:
 https://nbahackathon.firebaseapp.com
 
 
+
 In real practice:
    - Clock would be running, 
 
