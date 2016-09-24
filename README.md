@@ -1,4 +1,4 @@
-# NBA-Hackathon
+# NBA-Hackathon: Prompt #2
 
 
 In real practice:
@@ -9,6 +9,7 @@ In real practice:
    - Graphics and data would update to reflect most recently run analysis
 
    - For the purpose of the hackathon, we ran the analysis we developed and hardcoded the values in the front-end
+
 
 
 To run the project locally, from the root directory of the project:
