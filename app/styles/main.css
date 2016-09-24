@@ -52,6 +52,15 @@ html {
   font-size: 56px;
 }
 
+.infoButton {
+  position: fixed;
+  top: 31px;
+  right:15px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
 /* END HEADER */
 
 /* SIDEBAR GAME NAV */
@@ -89,6 +98,10 @@ html {
 }
 
 .gamesNav .gamesNavList .gameListing:hover {
+  background-color: blue;
+}
+
+.activeGame {
   background-color: blue;
 }
 /* END SIDEBAR GAME NAV */
@@ -129,6 +142,13 @@ html {
 .activeTeam {
   background-color: white;
   color: black;
+}
+
+.gameClock {
+  position: relative;
+  top: 10px;
+  font-size: 35px;
+  text-align: center;
 }
 /* END MAIN DASHBOARD */
 

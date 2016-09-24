@@ -1,7 +1,9 @@
 'use strict';
 
+// SHOW MODAL ON PAGE LOAD. OPEN IT AGAIN WITH i IN TOP RIGHT
+
 angular.module('nbahackathonApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, ngDialog) {
 
   	$scope.curQuarter = 1;
   	$scope.curTime = "12:00"; 
@@ -42,6 +44,13 @@ angular.module('nbahackathonApp')
   	$scope.getTeamName = function(fullName) {
   		var n = fullName.split(" ");
     	return n[n.length - 1];
+  	};
+
+  	$scope.openInfoDialog = function() {
+        ngDialog.open({ 
+        	template: 'instructions', 
+        	className: 'ngdialog-theme-default' 
+        });
   	};
 
 
